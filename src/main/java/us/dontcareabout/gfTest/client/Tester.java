@@ -1,7 +1,10 @@
 package us.dontcareabout.gfTest.client;
 
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.sencha.gxt.widget.core.client.container.Viewport;
 
+import us.dontcareabout.gfTest.client.ui.MainView;
 import us.dontcareabout.gwt.client.GFEP;
 import us.dontcareabout.gwt.client.iCanUse.Feature;
 
@@ -24,5 +27,8 @@ public class Tester extends GFEP {
 
 	@Override
 	protected void start() {
+		Viewport vp = new Viewport();
+		vp.add(new MainView());
+		RootPanel.get().add(vp);
 	}
 }
