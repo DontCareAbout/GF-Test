@@ -27,6 +27,12 @@
 			<artifactId>gf</artifactId>
 			<version>0.0.2</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>us.dontcareabout</groupId>
+			<artifactId>FontMetrics</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
