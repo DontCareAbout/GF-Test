@@ -36,8 +36,7 @@ public class Issue_8 extends LayerContainer implements Issue {
 	private LayerSprite gen(double x, double y, Color c, int w, int h) {
 		LayerSprite result = new LayerSprite();
 		result.setBgColor(c);
-		result.setWidth(w);
-		result.setHeight(h);
+		result.resize(w, h);
 		result.setLX(x);
 		result.setLY(y);
 		return result;

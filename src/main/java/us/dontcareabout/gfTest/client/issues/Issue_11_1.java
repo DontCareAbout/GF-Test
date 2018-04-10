@@ -16,8 +16,7 @@ public class Issue_11_1 extends LayerContainer implements Issue {
 		for (int i = 0; i < col; i++) {
 			for (int j = 1; j < row + 1; j++) {
 				TextButton btn = new TextButton("A█國y");
-				btn.setWidth(200 + i * 60);
-				btn.setHeight(j * 40);
+				btn.resize(200 + i * 60, j * 40);
 				btn.setBgColor(RGB.LIGHTGRAY);
 				btn.setBgRadius(10);
 				btn.setMargin(5);
@@ -35,7 +34,7 @@ public class Issue_11_1 extends LayerContainer implements Issue {
 
 		for (Layer layer : getLayers()) {
 			LayerSprite ls = (LayerSprite)layer;
-			ls.onResize(ls.getWidth(), ls.getHeight());
+			ls.resize(ls.getWidth(), ls.getHeight());
 			ls.setLX(x);
 			ls.setLY(y);
 			y += ls.getHeight() + 5;

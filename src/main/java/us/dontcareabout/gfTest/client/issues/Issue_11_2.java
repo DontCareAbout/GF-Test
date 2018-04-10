@@ -45,7 +45,7 @@ public class Issue_11_2 extends LayerContainer implements Issue {
 
 		for (Layer layer : getLayers()) {
 			LayerSprite ls = (LayerSprite)layer;
-			ls.onResize(ls.getWidth(), ls.getHeight());
+			ls.resize(ls.getWidth(), ls.getHeight());
 			ls.setLY(y);
 			y += ls.getHeight() + 5;
 		}
@@ -55,8 +55,7 @@ public class Issue_11_2 extends LayerContainer implements Issue {
 
 	private TextButton gen(boolean upDown) {
 		TextButton btn = new TextButton("████");
-		btn.setWidth(upDown ? 190 : 250);
-		btn.setHeight(upDown ? 80 : 160);
+		btn.resize(upDown ? 190 : 250, upDown ? 80 : 160);
 		btn.setBgColor(RGB.PINK);
 //		btn.setBgRadius(10);
 		addLayer(btn);
