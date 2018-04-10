@@ -5,6 +5,7 @@ import java.util.Arrays;
 import com.google.common.base.Preconditions;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.data.shared.ModelKeyProvider;
 import com.sencha.gxt.data.shared.TreeStore;
@@ -60,8 +61,9 @@ public class MainView extends BorderLayoutContainer {
 			@Override
 			public void onSelection(SelectionEvent<Issue> event) {
 				Issue issue = event.getSelectedItem();
-				if (issue instanceof Widget) {
-					setCenterWidget((Widget) issue);
+
+				if (issue instanceof IsWidget) {
+					setCenterWidget(((IsWidget) issue).asWidget());
 					MainView.this.forceLayout();
 				}
 			}
