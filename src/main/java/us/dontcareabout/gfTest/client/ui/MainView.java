@@ -17,6 +17,7 @@ import us.dontcareabout.gfTest.client.issues.Issue_11_1;
 import us.dontcareabout.gfTest.client.issues.Issue_11_2;
 import us.dontcareabout.gfTest.client.issues.Issue_11_3;
 import us.dontcareabout.gfTest.client.issues.Issue_15;
+import us.dontcareabout.gfTest.client.issues.Issue_19;
 import us.dontcareabout.gfTest.client.issues.Issue_8;
 import us.dontcareabout.gxt.client.model.GetValueProvider;
 
@@ -34,6 +35,7 @@ public class MainView extends BorderLayoutContainer {
 		addIssue(new Issue_8());
 		addIssues(new Issue_11_1(), new Issue_11_2(), new Issue_11_3());
 		addIssue(new Issue_15());
+		addIssue(new Issue_19());
 	}
 
 	private void buildTree() {
