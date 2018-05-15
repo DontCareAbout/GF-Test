@@ -35,7 +35,7 @@ public class Issue_21 extends LayerSprite implements Issue {
 		btn.resize(100, 70);
 	}
 
-	private void add() {
+	public void add() {
 		LRectangleSprite newOne = new LRectangleSprite();
 		newOne.setWidth(100);
 		newOne.setHeight(100);
@@ -49,6 +49,11 @@ public class Issue_21 extends LayerSprite implements Issue {
 		add(newOne);
 		redeploy();
 		offset += 10;
+	}
+
+	public void addAndRedraw() {
+		add();
+		redraw();
 	}
 
 	@Override
