@@ -6,12 +6,13 @@ import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent;
 import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent.SpriteSelectionHandler;
 
 import us.dontcareabout.gfTest.client.Issue;
-import us.dontcareabout.gxt.client.draw.Cursor;
 import us.dontcareabout.gxt.client.draw.LayerContainer;
 import us.dontcareabout.gxt.client.draw.LayerSprite;
+import us.dontcareabout.gxt.client.draw.component.TextButton;
 
 public class Issue_8 extends LayerContainer implements Issue {
 	final Color[] color = {RGB.GREEN, RGB.BLUE, RGB.PINK, RGB.PURPLE};
+	private TextButton btn = new TextButton("clear()");
 
 	public Issue_8() {
 		final LayerSprite layer = new LayerSprite();
@@ -22,8 +23,9 @@ public class Issue_8 extends LayerContainer implements Issue {
 
 		addLayer(layer);
 
-		final LayerSprite btn = gen(0, 0, RGB.RED, 200, 100);
-		btn.setCursor(Cursor.POINTER);	//FIXME 沒有作用？ WTF？
+		btn.setBgColor(RGB.BLACK);
+		btn.setTextColor(RGB.WHITE);
+		btn.setBgRadius(10);
 		btn.addSpriteSelectionHandler(new SpriteSelectionHandler() {
 			@Override
 			public void onSpriteSelect(SpriteSelectionEvent event) {
@@ -31,6 +33,12 @@ public class Issue_8 extends LayerContainer implements Issue {
 			}
 		});
 		addLayer(btn);
+	}
+
+	@Override
+	protected void onResize(int width, int height) {
+		btn.resize(200, 100);
+		super.onResize(width, height);
 	}
 
 	private LayerSprite gen(double x, double y, Color c, int w, int h) {
