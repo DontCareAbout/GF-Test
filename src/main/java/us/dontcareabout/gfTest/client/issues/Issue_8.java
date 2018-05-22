@@ -6,6 +6,8 @@ import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent;
 import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent.SpriteSelectionHandler;
 
 import us.dontcareabout.gfTest.client.Issue;
+import us.dontcareabout.gfTest.client.ui.Toolkit;
+import us.dontcareabout.gxt.client.draw.LRectangleSprite;
 import us.dontcareabout.gxt.client.draw.LayerContainer;
 import us.dontcareabout.gxt.client.draw.LayerSprite;
 import us.dontcareabout.gxt.client.draw.component.TextButton;
@@ -18,7 +20,10 @@ public class Issue_8 extends LayerContainer implements Issue {
 		final LayerSprite layer = new LayerSprite();
 
 		for (int i = 0; i < 6; i++) {
-			layer.add(gen(500 - i * 20, 500 - i * 20, color[i%color.length], 100, 100));
+			LRectangleSprite newOne = Toolkit.genRectangle();
+			newOne.setLX(500 - i * 20);
+			newOne.setLY(500 - i * 20);
+			layer.add(newOne);
 		}
 
 		addLayer(layer);
@@ -39,15 +44,6 @@ public class Issue_8 extends LayerContainer implements Issue {
 	protected void onResize(int width, int height) {
 		btn.resize(200, 100);
 		super.onResize(width, height);
-	}
-
-	private LayerSprite gen(double x, double y, Color c, int w, int h) {
-		LayerSprite result = new LayerSprite();
-		result.setBgColor(c);
-		result.resize(w, h);
-		result.setLX(x);
-		result.setLY(y);
-		return result;
 	}
 
 	@Override
