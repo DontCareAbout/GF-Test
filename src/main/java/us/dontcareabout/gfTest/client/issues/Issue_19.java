@@ -7,6 +7,7 @@ import com.sencha.gxt.core.client.dom.ScrollSupport.ScrollMode;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 
 import us.dontcareabout.gfTest.client.Issue;
+import us.dontcareabout.gfTest.client.ui.Toolkit;
 import us.dontcareabout.gxt.client.draw.LayerSprite;
 import us.dontcareabout.gxt.client.draw.component.TextButton;
 
@@ -32,17 +33,19 @@ public class Issue_19 extends VerticalLayoutContainer implements Issue {
 	}
 
 	private class Foo extends LayerSprite {
-		TextButton bigger = genButton(true);
-		TextButton smaller = genButton(false);
+		TextButton bigger = Toolkit.genButton("變大", RGB.BLACK, RGB.YELLOW);
+		TextButton smaller = Toolkit.genButton("變小", RGB.BLACK, RGB.PINK);
 
 		Foo() {
 			setBgColor(RGB.LIGHTGRAY);
 			bigger.setLX(20);
 			bigger.setLY(20);
+			bigger.addSpriteSelectionHandler(new Handler(true));
 			add(bigger);
 
 			smaller.setLX(140);
 			smaller.setLY(20);
+			smaller.addSpriteSelectionHandler(new Handler(false));
 			add(smaller);
 		}
 
@@ -52,18 +55,17 @@ public class Issue_19 extends VerticalLayoutContainer implements Issue {
 			smaller.resize(100, 50);
 		}
 
-		private TextButton genButton(boolean isBigger) {
-			final int size = isBigger ? 100 : -100;
-			TextButton result = new TextButton(isBigger ? "變大" : "變小");
-			result.setBgColor(isBigger ? RGB.YELLOW : RGB.PINK);
-			result.setBgRadius(10);
-			result.addSpriteSelectionHandler(new SpriteSelectionHandler() {
-				@Override
-				public void onSpriteSelect(SpriteSelectionEvent event) {
-					resize(getWidth() + size, getHeight() + size);
-				}
-			});
-			return result;
+		private class Handler implements SpriteSelectionHandler {
+			final int size;
+
+			Handler(boolean isBigger) {
+				size = isBigger ? 100 : -100;
+			}
+
+			@Override
+			public void onSpriteSelect(SpriteSelectionEvent event) {
+				resize(getWidth() + size, getHeight() + size);
+			}
 		}
 	}
 }

@@ -3,6 +3,7 @@ package us.dontcareabout.gfTest.client.issues;
 import com.sencha.gxt.chart.client.draw.RGB;
 
 import us.dontcareabout.gfTest.client.Issue;
+import us.dontcareabout.gfTest.client.ui.Toolkit;
 import us.dontcareabout.gxt.client.draw.LayerContainer;
 import us.dontcareabout.gxt.client.draw.LayerSprite;
 import us.dontcareabout.gxt.client.draw.component.TextButton;
@@ -13,7 +14,9 @@ public class Issue_11_3 extends LayerContainer implements Issue {
 
 	public Issue_11_3() {
 		for (int i = 0; i < col * row; i++) {
-			gen();
+			TextButton btn = Toolkit.genButton("A█國y", RGB.WHITE, RGB.BLUE);
+			btn.resize(250, 160);
+			addLayer(btn);
 		}
 	}
 
@@ -25,7 +28,7 @@ public class Issue_11_3 extends LayerContainer implements Issue {
 		for (int i = 0; i < col; i++) {
 			final double x = w * i;
 			for (int j = 0; j < row; j++) {
-				LayerSprite ls = (LayerSprite)getLayers().get(i * row + j);
+				LayerSprite ls = getLayers().get(i * row + j);
 				ls.resize(w, h);
 				ls.setLX(x);
 				ls.setLY(h * j);
@@ -33,15 +36,6 @@ public class Issue_11_3 extends LayerContainer implements Issue {
 		}
 
 		super.onResize(width, height);
-	}
-
-	private TextButton gen() {
-		TextButton btn = new TextButton("A█國y");
-		btn.resize(250, 160);
-		btn.setBgColor(RGB.MAGENTA);
-		btn.setBgRadius(5);
-		addLayer(btn);
-		return btn;
 	}
 
 	@Override
