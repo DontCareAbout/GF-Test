@@ -1,7 +1,5 @@
 package us.dontcareabout.gfTest.client.issues;
 
-import com.sencha.gxt.chart.client.draw.Color;
-import com.sencha.gxt.chart.client.draw.RGB;
 import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent;
 import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent.SpriteSelectionHandler;
 
@@ -13,12 +11,10 @@ import us.dontcareabout.gxt.client.draw.LayerSprite;
 import us.dontcareabout.gxt.client.draw.component.TextButton;
 
 public class Issue_8 extends LayerContainer implements Issue {
-	final Color[] color = {RGB.GREEN, RGB.BLUE, RGB.PINK, RGB.PURPLE};
-	private TextButton btn = new TextButton("clear()");
+	private TextButton btn = Toolkit.genButton("clear()");
+	private LayerSprite layer = new LayerSprite();
 
 	public Issue_8() {
-		final LayerSprite layer = new LayerSprite();
-
 		for (int i = 0; i < 6; i++) {
 			LRectangleSprite newOne = Toolkit.genRectangle();
 			newOne.setLX(500 - i * 20);
@@ -27,10 +23,6 @@ public class Issue_8 extends LayerContainer implements Issue {
 		}
 
 		addLayer(layer);
-
-		btn.setBgColor(RGB.BLACK);
-		btn.setTextColor(RGB.WHITE);
-		btn.setBgRadius(10);
 		btn.addSpriteSelectionHandler(new SpriteSelectionHandler() {
 			@Override
 			public void onSpriteSelect(SpriteSelectionEvent event) {

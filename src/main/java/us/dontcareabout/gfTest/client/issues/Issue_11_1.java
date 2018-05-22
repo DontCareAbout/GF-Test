@@ -1,8 +1,7 @@
 package us.dontcareabout.gfTest.client.issues;
 
-import com.sencha.gxt.chart.client.draw.RGB;
-
 import us.dontcareabout.gfTest.client.Issue;
+import us.dontcareabout.gfTest.client.ui.Toolkit;
 import us.dontcareabout.gxt.client.draw.Layer;
 import us.dontcareabout.gxt.client.draw.LayerContainer;
 import us.dontcareabout.gxt.client.draw.LayerSprite;
@@ -15,12 +14,8 @@ public class Issue_11_1 extends LayerContainer implements Issue {
 	public Issue_11_1() {
 		for (int i = 0; i < col; i++) {
 			for (int j = 1; j < row + 1; j++) {
-				TextButton btn = new TextButton("A█國y");
+				TextButton btn = Toolkit.genButton("A█國y");
 				btn.resize(200 + i * 60, j * 40);
-				btn.setBgColor(RGB.LIGHTGRAY);
-				btn.setBgRadius(10);
-				btn.setMargin(5);
-				btn.setTextColor(RGB.MAGENTA);
 				addLayer(btn);
 			}
 		}

@@ -1,6 +1,5 @@
 package us.dontcareabout.gfTest.client.issues;
 
-import com.sencha.gxt.chart.client.draw.RGB;
 import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent;
 import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent.SpriteSelectionHandler;
 import com.sencha.gxt.core.client.util.Margins;
@@ -9,6 +8,7 @@ import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.Hor
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 
 import us.dontcareabout.gfTest.client.Issue;
+import us.dontcareabout.gfTest.client.ui.Toolkit;
 import us.dontcareabout.gxt.client.draw.component.TextButton;
 
 public class Issue_25 extends VerticalLayoutContainer implements Issue {
@@ -19,10 +19,7 @@ public class Issue_25 extends VerticalLayoutContainer implements Issue {
 
 		HorizontalLayoutContainer hlc = new HorizontalLayoutContainer();
 
-		TextButton add = new TextButton("add (X)");
-		add.setBgColor(RGB.BLACK);
-		add.setTextColor(RGB.WHITE);
-		add.setBgRadius(10);
+		TextButton add = Toolkit.genButton("add (X)");
 		add.addSpriteSelectionHandler(new SpriteSelectionHandler() {
 			@Override
 			public void onSpriteSelect(SpriteSelectionEvent event) {
@@ -31,10 +28,7 @@ public class Issue_25 extends VerticalLayoutContainer implements Issue {
 		});
 		hlc.add(add, hld);
 
-		TextButton redraw = new TextButton("add & redraw");
-		redraw.setBgColor(RGB.BLACK);
-		redraw.setTextColor(RGB.WHITE);
-		redraw.setBgRadius(10);
+		TextButton redraw = Toolkit.genButton("add & redraw");
 		redraw.addSpriteSelectionHandler(new SpriteSelectionHandler() {
 			@Override
 			public void onSpriteSelect(SpriteSelectionEvent event) {
