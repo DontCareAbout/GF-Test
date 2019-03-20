@@ -37,6 +37,7 @@ public class IssueTree extends Tree<Issue, String> {
 		addIssue(new Issue_21());
 		addIssue(new Issue_25());
 		addIssue(new Issue_30());
+		addIssue(new Issue_33());
 	}
 
 	private void addIssue(Issue issue) {
