@@ -17,7 +17,7 @@ public class Issue_42 extends LayerContainer implements Issue {
 	public Issue_42() {
 		for (int i = 0; i < 4; i++) {
 			VerticalLayoutLayer vll = new VerticalLayoutLayer();
-			vll.setMargin(margins);
+			vll.setMargins(margins);
 			vll.setGap(10);
 			vll.setBgColor(RGB.GREEN);
 			root.addChild(vll, i == 0 ? 1 : i * 100);
@@ -29,7 +29,7 @@ public class Issue_42 extends LayerContainer implements Issue {
 			}
 		}
 
-		root.setMargin(margins);
+		root.setMargins(margins);
 		root.setGap(10);
 		root.setBgColor(RGB.PINK);
 		addLayer(root);
