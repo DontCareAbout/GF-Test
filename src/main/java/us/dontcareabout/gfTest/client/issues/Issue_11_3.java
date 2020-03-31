@@ -21,7 +21,7 @@ public class Issue_11_3 extends LayerContainer implements Issue {
 	}
 
 	@Override
-	protected void onResize(int width, int height) {
+	protected void adjustMember(int width, int height) {
 		double w = width * 1.0 / col;
 		double h = height * 1.0 / row;
 
@@ -34,8 +34,6 @@ public class Issue_11_3 extends LayerContainer implements Issue {
 				ls.setLY(h * j);
 			}
 		}
-
-		super.onResize(width, height);
 	}
 
 	@Override

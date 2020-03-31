@@ -40,7 +40,7 @@ public class Issue_11_2 extends LayerContainer implements Issue {
 	}
 
 	@Override
-	protected void onResize(int width, int height) {
+	protected void adjustMember(int width, int height) {
 		int y = 0;
 
 		for (Layer layer : getLayers()) {
@@ -49,8 +49,6 @@ public class Issue_11_2 extends LayerContainer implements Issue {
 			ls.setLY(y);
 			y += ls.getHeight() + 5;
 		}
-
-		super.onResize(width, height);
 	}
 
 	private TextButton gen(boolean upDown) {

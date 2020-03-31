@@ -22,7 +22,7 @@ public class Issue_11_1 extends LayerContainer implements Issue {
 	}
 
 	@Override
-	protected void onResize(int width, int height) {
+	protected void adjustMember(int width, int height) {
 		int y = 0;
 		int x = 0;
 		int count = 0;
@@ -40,7 +40,6 @@ public class Issue_11_1 extends LayerContainer implements Issue {
 				x += ls.getWidth() + 5;
 			}
 		}
-		super.onResize(width, height);
 	}
 
 	@Override

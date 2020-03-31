@@ -33,9 +33,8 @@ public class Issue_8 extends LayerContainer implements Issue {
 	}
 
 	@Override
-	protected void onResize(int width, int height) {
+	protected void adjustMember(int width, int height) {
 		btn.resize(200, 100);
-		super.onResize(width, height);
 	}
 
 	@Override

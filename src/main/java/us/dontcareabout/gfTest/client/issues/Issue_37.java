@@ -74,7 +74,7 @@ public class Issue_37 extends LayerContainer implements Issue {
 	boolean deferred;
 
 	@Override
-	protected void onResize(int width, int height) {
+	protected void adjustMember(int width, int height) {
 		once.setLX(10);
 		once.setLY(10);
 		once.resize(120, 40);
@@ -94,8 +94,6 @@ public class Issue_37 extends LayerContainer implements Issue {
 		foo.setLX(20);
 		foo.setLY(60);
 		foo.resize(100 + counter * 30, 50 + counter * 10);
-
-		super.onResize(width, height);
 	}
 
 	private void adjust() {
