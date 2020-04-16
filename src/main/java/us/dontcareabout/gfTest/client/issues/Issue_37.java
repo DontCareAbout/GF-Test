@@ -2,20 +2,20 @@ package us.dontcareabout.gfTest.client.issues;
 
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
-import com.sencha.gxt.chart.client.draw.RGB;
 import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent;
 import com.sencha.gxt.chart.client.draw.sprite.SpriteSelectionEvent.SpriteSelectionHandler;
 
 import us.dontcareabout.gfTest.client.Issue;
+import us.dontcareabout.gfTest.client.ui.Toolkit;
 import us.dontcareabout.gxt.client.draw.LayerContainer;
 import us.dontcareabout.gxt.client.draw.component.TextButton;
 
 public class Issue_37 extends LayerContainer implements Issue {
-	private TextButton once = genButton("onResize()");
-	private TextButton onceAndDeferred = genButton("onResize()（deferred）");
-	private TextButton twice = genButton("兩次 onResize()");
-	private TextButton twiceAndDeffered = genButton("兩次（deferred）");
-	private TextButton foo = genButton("我要變大啦 >///<");
+	private TextButton once = Toolkit.genButton("onResize()");
+	private TextButton onceAndDeferred = Toolkit.genButton("onResize()（deferred）");
+	private TextButton twice = Toolkit.genButton("兩次 onResize()");
+	private TextButton twiceAndDeffered = Toolkit.genButton("兩次（deferred）");
+	private TextButton foo = Toolkit.genButton("我要變大啦 >///<");
 
 	private int counter;
 
@@ -98,7 +98,7 @@ public class Issue_37 extends LayerContainer implements Issue {
 
 	private void adjust() {
 		foo.undeploy();
-		foo = genButton("第 " + (++counter) + " 次");
+		foo = Toolkit.genButton("第 " + (++counter) + " 次");
 		addLayer(foo);
 	}
 
@@ -106,16 +106,9 @@ public class Issue_37 extends LayerContainer implements Issue {
 		onResize(getOffsetWidth(), getOffsetHeight());
 	}
 
-	private static TextButton genButton(String text) {
-		TextButton result = new TextButton(text);
-		result.setBgColor(RGB.RED);
-		result.setTextColor(RGB.WHITE);
-		return result;
-	}
-
 	@Override
 	public int number() {
-		return 65535;
+		return 37;
 	}
 
 	@Override
