@@ -42,6 +42,7 @@ public class IssueTree extends Tree<Issue, String> {
 		addIssue(new Issue_37());
 		addIssue(new Issue_39());
 		addIssue(new Issue_42());
+		addIssue(new Issue_55());
 	}
 
 	private void addIssue(Issue issue) {
